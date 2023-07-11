@@ -9,4 +9,12 @@ from django.db import models
     # USERNAME_FIELDS = 'phone_number'
     # REQUIRED_FIELDS = ''
 
+class user(models.Model):
+    name = models.CharField(max_length=60)
+    email = models.CharField(max_length=70)
+    dp = models.FileField(upload_to="name/")
+
+ 
+
+
 # Create your models here.

@@ -1,1 +1,29 @@
-<h2>hy users</h2>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <div>
+        <div>
+            <div>
+                <form>
+                    <!-- <label>Name</label> -->
+                    <input type="text" id="user_name" name="name" placeholder="Enter name">
+
+                     <!-- <label>Email</label> -->
+                    <input type="email" id="user_email" name="email" placeholder="Enter your Email">
+
+                    <!-- </input><label>DP</label> -->
+                    <input type="file" id="user_dp" name="dp">
+
+                    <button id="submit" >submit</button>   
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+
+
