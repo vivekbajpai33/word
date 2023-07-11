@@ -3,27 +3,73 @@
 {% block content %}
 
 <section>
-    <div>
+    <div class="bg-light">
         <div>
-            <div>
-                <form>
-                    <!-- <label>Name</label> -->
-                    <input type="text" id="user_name" name="name" placeholder="Enter name">
-
-                     <!-- <label>Email</label> -->
-                    <input type="email" id="user_email" name="email" placeholder="Enter your Email">
-
-                    <!-- </input><label>DP</label> -->
-                    <input type="file" id="user_dp" name="dp">
-
-                    <button id="submit" >submit</button>   
-                </form>
+            <div class="wd">
+                <form onsubmit="return error()">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label" id="">Email address</label>
+                        <input type="text" class="form-control" name="username" id="exampleInputName" aria-describedby="emailHelp">
+                        <p id="nameerror"></p>
+                      </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label" id="">Email address</label>
+                      <input type="email" class="form-control" name="useremail" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <p id="emailerror"></p>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" name="userpassword" id="exampleInputPassword1">
+                      <p id="passworderror"></p>
+                    </div>
+                    <input type="submit" value="submit" class="btn btn-primary">
+                  </form>
             </div>
         </div>
     </div>
 </section>
 
 
+<script type="text/javascript">
+    function error() {
+        var name = document.getElementById("exampleInputName").value;
+        var email = document.getElementById("exampleInputEmail1").value;
+        var password = document.getElementById("exampleInputPassword1").value;
+
+        if (name == ""){
+           document.getElementById("nameerror").innerHTML = "Plz enter name";
+           return false;
+        }
+
+        if (email == ""){
+            document.getElementById("emailerror").innerHTML = "plz enter email";
+            return false;
+        }
+      
+        if (password == ""){
+            document.getElementById("passworderror").innerHTML = "plz enter password";
+            return false;
+        }
+
+
+
+    }
+</script>
+
+
+
+
+
+
+
 {% endblock content %}
+
+
+
+
+
+
+
+ 
 
 

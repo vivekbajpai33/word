@@ -1,0 +1,14 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.bg-light{
+    background-color: #d1d5db;
+}
+
+.wd{
+    width: 80%;
+    margin: auto;
+}
