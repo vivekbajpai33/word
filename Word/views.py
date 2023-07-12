@@ -8,11 +8,15 @@ def home(request):
 
 def contactus(reuest):
     ouruser = userform()
+    
     di = {
         'form':ouruser
     }
 
+
+
     return render(reuest,'sec-contact.html',di)
+    
 
 # class ContactVeiw(TemplateView):
 #     template_name = "contact.html"
