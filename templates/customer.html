@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <div class="bg-light">
+        <div>
+            <div class="wd">
+                <form onsubmit="return error()" method='post' role="form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label" id="">Name</label>
+                        <input type="text" class="form-control" name="username" id="exampleInputName" aria-describedby="emailHelp">
+                        <p id="nameerror"></p>
+                      </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label" id="">Email address</label>
+                      <input type="email" class="form-control" name="useremail" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <p id="emailerror"></p>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control" name="userpassword" id="exampleInputPassword1">
+                      <p id="passworderror"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Post Dp</label>
+                        <input type="file" class="form-control" name="userdp" id="dp">
+                        <p id="passworderror"></p>
+                      </div>
+                    <input type="submit" value="submit" class="btn btn-primary">
+                  </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    function error() {
+        var name = document.getElementById("exampleInputName").value;
+        var email = document.getElementById("exampleInputEmail1").value;
+        var password = document.getElementById("exampleInputPassword1").value;
+
+        if (name == ""){
+           document.getElementById("nameerror").innerHTML = "Plz enter name";
+           return false;
+        }
+
+        if (email == ""){
+            document.getElementById("emailerror").innerHTML = "plz enter email";
+            return false;
+        }
+      
+        if (password == ""){
+            document.getElementById("passworderror").innerHTML = "plz enter password";
+            return false;
+        }
+
+
+
+    }
+</script>
+
+{% endblock content %}
