@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="crud-section">
+    <div class="wd">
+
+
+
+        <div>
+            {% for i in our %}
+            <table class="table mb-3">
+                <thead>
+                    <tr>
+                         <th>Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Post Dp</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr class="table" id="data">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.password}}</td>
+                        <td><img style="width: 100px; height: 100px; object-fit: cover;" src="/media/{{i.dp}}"></td>
+                        <td>
+                            <div class="hide">
+                            <p class="edit">Edit</p>
+                           <a href="#"><span class="material-symbols-outlined show" style="cursor: pointer;">
+                                sync_alt
+                            </span>
+                          </a>
+                          </div>
+
+                          <div class="del">
+                            <span class="material-symbols-outlined" style="cursor: pointer;">
+                                delete
+                            </span>
+                            <p class="delete">Delete</p>
+                          </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        
+
+
+
+
+        {% endfor %}
+        </div> 
+        <a class="btn btn-primary" href="/customer/">Add <span class="material-symbols-outlined btn btn-primary">
+            person_add
+        </span></a>
+   
+
+</section>
+
+
+<section>
+    <div>
+        <div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+{% endblock content %}

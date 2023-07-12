@@ -31,17 +31,27 @@ class ContactVeiw(View):
     
     def post(self,request):
          if request.method == 'POST':
+              
               username = request.POST.get('username')
               useremail = request.POST.get('useremail')
               userdp = request.FILES['userdp']
               userpassword = request.POST.get('userpassword')
               print('userdp', userdp)
 
-              data = user.objects.create(name=username,email= useremail,dp=userdp,password= userpassword)
-              data #.save()
+              data = user(name=username,email= useremail,dp=userdp,password= userpassword)
+              data.save()
+              
 
               return render(request,'customer.html')
 
+
+class Studentview(View):
+     def get(self,request):
+          home = user.objects.all()
+          di = {
+               'our':home
+          }
+          return render(request,'student.html',di)
 
        
               

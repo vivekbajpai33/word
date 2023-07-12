@@ -13,7 +13,7 @@ class user(models.Model):
     name = models.CharField(max_length=60)
     email = models.CharField(max_length=70,blank=True)
     dp = models.FileField(upload_to="custom")
-    password = models.CharField(max_length=100,default='',unique=True)
+    password = models.CharField(max_length=100)
 
  
 
