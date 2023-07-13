@@ -3,12 +3,12 @@
 {% block content %}
 
 
-{% comment %} <section>
+<section>
     <div class="bg-light">
         <div>
-            <div class="wd"{{forloop.counter}}>
+            <div class="wd">
                 {% for i in use %}
-                <form method='post' action="{{forloop.counter}}" role="form" enctype="multipart/form-data">
+                <form method='post' action="#" role="form" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label" id="">Name</label>
@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-</section> {% endcomment %}
+</section> 
 
 {% endblock content %}
 

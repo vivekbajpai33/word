@@ -55,7 +55,7 @@ class Studentview(View):
           return render(request,'student.html',di)
 
 
-def update(request,id):
+def update(request):
      if request.method == 'POST':
           name = request.POST.get('name')
           email = request.POST.get('email')
@@ -63,8 +63,8 @@ def update(request,id):
           dp = request.POST.get('dp')
           emp = user(id = id,name= name,email=email,password= password,dp =dp)     
           emp.save()
-          return redirect("cutomer")  
-     return render(request,'student.html',id)      
+          return redirect("student")  
+     return render(request,'student.html')      
 
 
 class MyView(View):
