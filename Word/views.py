@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.views import View
 from .form import userform
 from customuser.models import user
@@ -53,14 +54,25 @@ class Studentview(View):
           }
           return render(request,'student.html',di)
 
-       
-              
+
+def update(request,id):
+     if request.method == 'POST':
+          name = request.POST.get('name')
+          email = request.POST.get('email')
+          password = request.POST.get('password')
+          dp = request.POST.get('dp')
+          emp = user(id = id,name= name,email=email,password= password,dp =dp)     
+          emp.save()
+          return redirect("cutomer")  
+     return render(request,'student.html',id)      
 
 
 class MyView(View):
     def get(self, request):
-        # Logic for GET request
+        home  = user.objects.all()
         data = {
-            'name': 'John Doe'
+             
+             'use' : home
             }
+        
         return render(request, 'contact.html', data)

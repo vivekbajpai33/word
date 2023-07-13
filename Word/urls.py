@@ -29,7 +29,8 @@ urlpatterns = [
     path('contact/', MyView.as_view(), name='my-view'),
     path('contact-us/',views.contactus,name='contact-us'),
     path('customer/',ContactVeiw.as_view(),name='cutomer'),
-    path('student-details/',Studentview.as_view(),name='student')
+    path('student-details/',Studentview.as_view(),name='student'),
+    path('update/<str:id>',views.update,name='update')
         
 ]
 

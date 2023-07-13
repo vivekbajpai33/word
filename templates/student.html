@@ -8,7 +8,7 @@
 
 
         <div>
-            {% for i in our %}
+            
             <table class="table mb-3">
                 <thead>
                     <tr>
@@ -22,6 +22,7 @@
                 </thead>
                 
                 <tbody>
+                    {% for i in our %}
                     <tr class="table" id="data">
                         <td>{{forloop.counter}}</td>
                         <td>{{i.name}}</td>
@@ -31,7 +32,7 @@
                         <td>
                             <div class="hide">
                             <p class="edit">Edit</p>
-                           <a href="#"><span class="material-symbols-outlined show" style="cursor: pointer;">
+                           <a href="#editer-{{forloop.counter}}" id="" type="submit"><span class="material-symbols-outlined show" style="cursor: pointer;">
                                 sync_alt
                             </span>
                           </a>
@@ -45,22 +46,23 @@
                           </div>
                         </td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
 
-
+        
         
 
 
 
 
-        {% endfor %}
+       
         </div> 
+       
         <a class="btn btn-primary" href="/customer/">Add <span class="material-symbols-outlined btn btn-primary">
             person_add
         </span></a>
-   
 
 </section>
 
@@ -68,7 +70,38 @@
 <section>
     <div>
         <div>
-
+            <div class="bg-light">
+                <div>
+                    <div class="wd" id="#editer-{{forloop.counter}}">
+                        {% for i in use %}
+                        <form method='post' action="{{forloop.counter}}" role="form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" id="">Name</label>
+                                <input type="text" value="{{i.name}}" class="form-control" name="username" id="exampleInputName" aria-describedby="emailHelp">
+                                <p id="nameerror"></p>
+                              </div>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label" id="">Email address</label>
+                              <input type="email" value="{{i.value}}" class="form-control" name="useremail" id="exampleInputEmail1" aria-describedby="emailHelp">
+                              <p id="emailerror"></p>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Password</label>
+                              <input type="password" value="{{i.password}}" class="form-control" name="userpassword" id="exampleInputPassword1">
+                              <p id="passworderror"></p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Post Dp</label>
+                                <input type="file" class="form-control" value="{{i.dp}}" name="userdp" id="dp">
+                                <p id="passworderror"></p>
+                              </div>
+                            <input type="submit" value="Save"  class="btn btn-primary">
+                          </form>
+                          {% endfor %}
+                    </div>
+                </div>
+            </div> 
         </div>
     </div>
 </section>
